@@ -41,23 +41,23 @@ One of the good examples is GitHub Actions.
 	- install java. `sudo apt install openjdk-21-jdk`
 	- install jenkins. Use oficial website for the command
 2) Allow the Jenkins communicate with EC2 instance by setting inbound rule.
-![[Pasted image 20240830190248.png]]
+![](../Images/Pasted%20image%2020240830190248.png)
 The port can be seen with ps -ef | jenkins
 
 3) Use ip adress and port as an address and check the passport:
-![[Pasted image 20240830190625.png]]
+![](../Images/Pasted%20image%2020240830190625.png)
 then select "Install suggested plugins" and follow other steps. After that it should be installed.
 
 Before working with jenkins I figured out how pull requests works in GitHub. This is the example of how make a pull request to merge the changes from another branch to the main:
 	 - first i created the new branch locally called draft and connected it with the remote draft branch in my GitHub repository:
-	 ![[Pasted image 20240830203140.png]]
+	 ![](../Images/Pasted%20image%2020240830203140.png)
 	 then I created a new file and pushed new changes to remote draft branch.
 	 - after select pull requests - > create new request on github and choose the branch from which we will be merging our changes to main branch
-	 ![[Pasted image 20240830203621.png]]
-	![[Pasted image 20240830203736.png]]
+	 ![](../Images/Pasted%20image%2020240830203621.png)
+	![](../Images/Pasted%20image%2020240830203736.png)
 	 - And after you press "merge pull request", the changes will appear on main branch as new merge commit.
 Let's try to add CI to this GitHub repository.
-![[Pasted image 20240830204255.png]]
+![](../Images/Pasted%20image%2020240830204255.png)
 #### The image shows two different Jenkins infrastructure setups:
 
 1. **Left Side**: A traditional Jenkins setup with a single Jenkins Master node connected to multiple Jenkins Worker Nodes (Node 1, Node 2, Node 3). This architecture represents a standard distributed Jenkins environment where the Master node manages the jobs and the Worker nodes execute the jobs.
@@ -83,7 +83,7 @@ Then go to new item and choose Pipeline.
 
 Add the Jenkins file to repository and add the path to Jenkins.
 Jenkins file: 
-![[Pasted image 20240831153528.png]]
+![](../Images/Pasted%20image%2020240831153528.png)
 
 The line `docker { image 'node:16-alpine' }` is part of a Jenkins pipeline script, and it specifies that the pipeline stage should run inside a Docker container using the specified image.
 
@@ -91,12 +91,12 @@ The line `docker { image 'node:16-alpine' }` is part of a Jenkins pipeline scrip
 - **`agent { docker { image '...' } }`**: This combination instructs Jenkins to pull the specified Docker image (`node:16-alpine`) from Docker Hub (or another Docker registry) and use it as the environment to run the commands in the stage.
 You can browse more images on [Docker Hub](https://hub.docker.com/) to find the most suitable one for your use case.
 
-![[Pasted image 20240831154111.png]]
+![](../Images/Pasted%20image%2020240831154111.png)
 
 Then launch the build. That is it!
 ### Multi agent multi steps pipeline
 
-![[Pasted image 20240831175323.png]]
+![](../Images/Pasted%20image%2020240831175323.png)
 
 ### Complete CI/CD setup with deploying on kubernetes
 Just watched for theory, but didn't practice yet because doesn't know anything about kubernetes and how to deploy on it
@@ -107,29 +107,29 @@ https://www.youtube.com/watch?v=ogrx8G8pClQ
 
 ### Adding GitHub Actions to my repository
 1) I created .github/workflows repository and added there `first-actions.yml` file. This is our pipeline:
-![[Pasted image 20240831212757.png]]
+![](../Images/Pasted%20image%2020240831212757.png)
  Such syntax like `- uses: actions/checkout@v3` means that checkout@v3 plugin will be used. All such plugins you can find in github doc.
 2) Added `addition.py` to new folder `action-test`. This is simple hardcoded python test. 
-![[Pasted image 20240831212942.png]]
+![](../Images/Pasted%20image%2020240831212942.png)
 
 After that I just pushed it on draft, the Ci automatically starting based on `first-actions.yml`. 
-![[Pasted image 20240831213110.png]]
-![[Pasted image 20240831213140.png]]
+![](../Images/Pasted%20image%2020240831213110.png)
+![](../Images/Pasted%20image%2020240831213140.png)
 
 Now for every new commit in this repository (on branches where action file present), Ci will be executed.
 You can read more in GitHub actions doc.
 
 Also you can use gitHub  secrets, for example write the keys to the setting of the GitHub repository and use variables in .yml file:
-![[Pasted image 20240831215157.png]]
+![](../Images/Pasted%20image%2020240831215157.png)
 ##### If you want to use your own runner(for example your own EC2 instance with docker how we done before with jenkins), you can set it in config:
 1) Create EC2 instance and set inbound and outbound rule: 
-![[Pasted image 20240831220357.png]]
+![](../Images/Pasted%20image%2020240831220357.png)
 
 2) Execute all commands on your EC2
-![[Pasted image 20240831221316.png]]
+![](../Images/Pasted%20image%2020240831221316.png)
 
 3) Change to `self-hosted`
-![[Pasted image 20240831222403.png]]
+![](../Images/Pasted%20image%2020240831222403.png)
 4) After that EC2 instance will be listnning for any commit on github repository
 ## Comparing with Jenkins
 

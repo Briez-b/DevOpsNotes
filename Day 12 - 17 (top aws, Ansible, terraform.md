@@ -4,7 +4,7 @@
 
 1. Clone the desired app to local repository: https://github.com/verma-kunal/AWS-Session
 2. Test if this app works locally: create `.env` file and copy there template from instruction on github(and fill the variables):
-![[Pasted image 20240916160058.png]]
+![](../Images/Pasted%20image%2020240916160058.png)
 
 3. `npm install` and `npm run start`. Now I am able to run this app in browser with domain name.
 Now the app is installed on local machine. Now let's install it on aws EC2 machine
@@ -12,7 +12,7 @@ Now the app is installed on local machine. Now let's install it on aws EC2 machi
 4. Connect to EC2 instance. Then install `node` and `npm`.
 5. Set variables in .env the same way as before
 6. `npm install` and `npm run start`. The application still can't be run as we need to add inbound rule to security group of our EC2 instance:
-![[Screenshot from 2024-08-25 14-01-15.png]]
+![[Screenshot from 2024-08-25 14-01-15.png)
 
 7. Now it is can be run with this address: public ip of ec2 instance and port(http://52.28.243.198:3000/)
 
@@ -55,7 +55,7 @@ Before devops, there were a lot of servers used for development. To configure th
 But the most used is ==Ansible==!
 
 The diffrence between Ansible and other CM tools:
-![[Pasted image 20240825173612.png]]
+![](../Images/Pasted%20image%2020240825173612.png)
 
 - **Puppet**:
     
@@ -79,15 +79,15 @@ Execute this command. And exit from the machine.
 3. Now I am able to connect to this machine without any key file, jus using `ssh ubuntu@54.93.165.98`
 
 First we need to create an inventory file to describe there IP addresses of machines.
-![[Pasted image 20240825202754.png]]
+![](../Images/Pasted%20image%2020240825202754.png)
 To execute something more complicated, playbook files used. But if you want to do something very simple, we can just execute one ansible command called ad hoc command:
-![[Pasted image 20240825202944.png]]
+![](../Images/Pasted%20image%2020240825202944.png)
 After that I am able to see `fileCreatedByAnsible` file on both machines.
 To understand what is -m and what modules should I use, you can check official documentation. https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
 Later you can check documentation and try it by yourself
 
 Also I can group my machines in inventory file:
-![[Pasted image 20240825203707.png]]
+![](../Images/Pasted%20image%2020240825203707.png)
 
 Now I can use group instead of all. For example
 `ansible -i inventory develop -m "shell" -a "touch fileCreatedByAnsible2"`
@@ -95,15 +95,15 @@ Now I can use group instead of all. For example
 ==Using playbook==:
 If I want for instance install nginx on both machines, I can write a playbook for this. So we need to create a .yml file. firstPlaybook.yml:
 
-![[Pasted image 20240825205539.png]]
+![](../Images/Pasted%20image%2020240825205539.png)
 typo, instead of `root` use `true`
 
 `ansible-playbook -i /home/ansible/inventory firstPlaybook.yml`
 
-![[Pasted image 20240825205958.png]]
+![](../Images/Pasted%20image%2020240825205958.png)
 
 To do more complex playbooks, you can use the ansible role. For example:
-![[Pasted image 20240825210723.png]]
+![](../Images/Pasted%20image%2020240825210723.png)
 Here we create kubernetes role. Using these folders we can structure our playbooks. More about it here: 
 https://github.com/ansible/ansible-examples
 
@@ -114,7 +114,7 @@ https://github.com/ansible/ansible-examples
 Sometimes devops enginers must write scripts for AWS or Azure or Google  cloud. And every time he needs to rewrite his previous scripts for another cloud platform. Sometimes it can be even both at the same time, for example organisation uses AWS and Azure both. Therefore Terraform was created.
 
 The concept of Terraform is API as code.
-![[Pasted image 20240827170334.png]]
+![](../Images/Pasted%20image%2020240827170334.png)
 
 As devops engineer, when you use terraform, You don't need to make a lot of work when you migrating from AWS to Azure. The changes are minimal. Terraform scripts have jmodules that are acceptable for different platforms. So instead fof using for example AWS or Azure cli scripts, we can just use Terraform scripts files.
 
@@ -136,12 +136,12 @@ To follow this tutorial you will need:
 Then I created new directory and new file there called main.tf.
 
 ==Random note==: To display both parameters with jq I can use such command:
-![[Pasted image 20240827184140.png]]
+![](../Images/Pasted%20image%2020240827184140.png)
 
 To create a new EC2 Instance there is the syntax of the main.tf:
-![[Pasted image 20240827184408.png]]Then I need to run `terraform init` to initialize what cloud provider and which versions the terraform should use. And then use `terraform plan`
-![[Pasted image 20240827184724.png]]
-![[Pasted image 20240827184746.png]]
+![](../Images/Pasted%20image%2020240827184408.png)Then I need to run `terraform init` to initialize what cloud provider and which versions the terraform should use. And then use `terraform plan`
+![](../Images/Pasted%20image%2020240827184724.png)
+![](../Images/Pasted%20image%2020240827184746.png)
 `terraform plan` used to show what will be done before execution the script. If all is right, use `terraform apply`. New EC2 instance will be created.
 Also read what else can be done in terraform aws documentation: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build
 
@@ -149,7 +149,7 @@ After that new file `terraform.tfstate` is created to track whjat was done with 
 
 This is a good practice to have other files in your terraform repository. For example you can add outputs.tf and variables.tf. Variables described in variables.tf can be used in main script file(for example to not write them multiple times manually, just using a variable). Output used to show the user of this script importante information about his newly created instance(for example tell him publicId of newly created EC2 instance)
 
-![[Pasted image 20240827200806.png]]
+![](../Images/Pasted%20image%2020240827200806.png)
 
 To add S3 backend remote state, first we need to create s3 backet and dynamo DB:
 So write new main.tf file to execute this:

@@ -5,5 +5,3 @@
 For example I can use `dhango-admin startproject mysite`. It will create skeleton of my future Django app.
 2) Read about nodeJs and how to deploy it.
 3) ==come back to devops playlist later, there is one video I missed for now==
-
-]]
