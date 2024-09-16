@@ -36,7 +36,7 @@ Every Development cycle has these phases:
 
 
 ---
-### ==Day 3 Virtual machines
+### ==Day 3 Virtual machines==
 
 When VM are not used, the resources used inefficiently. In this example we see that when there are 5 teams in the project(like example.com), they use 5 servers. In every server they use only 20 % of the resources. It sis very inefficiently. 
 
@@ -45,13 +45,13 @@ So, the Virtual Machines (VM) were created for such purpose. In such case we hav
  **Hypervisor**, also known as a **virtual machine monitor** (**VMM**) or **virtualizer**, is a type of computer [software](https://en.wikipedia.org/wiki/Software "Software"), [firmware](https://en.wikipedia.org/wiki/Firmware "Firmware") or [hardware](https://en.wikipedia.org/wiki/Computer_hardware "Computer hardware") that creates and runs [virtual machines](https://en.wikipedia.org/wiki/Virtual_machine "Virtual machine"). A computer on which a hypervisor runs one or more virtual machines is called a _host machine_, and each virtual machine is called a _guest machine_.
 Examples: Virtiual box, VMWare
 
-![](Images/Pasted%20image%2020240614021724.png)
+![](Attachments/Pasted%20image%2020240614021724.png)
 
 
 
 
 ---
-### ==Day 4 AWS & Asure - How to create virtual machines
+### ==Day 4 AWS & Asure - How to create virtual machines==
 
 AWS (Amazon web services) - is a subsidiary of [Amazon](https://en.wikipedia.org/wiki/Amazon.com "Amazon.com") that provides [on-demand](https://en.wikipedia.org/wiki/Software_as_a_service "Software as a service") [cloud computing](https://en.wikipedia.org/wiki/Cloud_computing "Cloud computing") [platforms](https://en.wikipedia.org/wiki/Computing_platform "Computing platform") and [APIs](https://en.wikipedia.org/wiki/Application_programming_interface "Application programming interface") to individuals, companies, and governments, on a metered, pay-as-you-go basis.
 
@@ -62,8 +62,8 @@ VM - Virtual machines in microsoft azure
 
 
 
-![](Images/Pasted%20image%2020240614021828.png)
-![](Images/Pasted%20image%2020240614023117.png)
+![](Attachments/Pasted%20image%2020240614021828.png)
+![](Attachments/Pasted%20image%2020240614023117.png)
 
 To automate the creation of VMs we can use scripts that interact with AWS API. To use scripts, several options exist:
 - **AWS CLI** ( AWS Command Line Interface)
@@ -72,27 +72,27 @@ To automate the creation of VMs we can use scripts that interact with AWS API. T
 -  **Terraform** (we will talk about it later)
 - **AWS CDK** (recently introduced)
 
-![](Images/Pasted%20image%2020240614030107.png)
+![](Attachments/Pasted%20image%2020240614030107.png)
 
 
 ---
-### ==Day 5 AWS CLI Full Guide | How to connect to EC2 Instance from UI & Terminal
+### ==Day 5 AWS CLI Full Guide | How to connect to EC2 Instance from UI & Terminal==
 
 
 Several ways to connect to VMs
 ### 1) Use AWS console. Just use connect button on AWS console(web page)
-![](Images/Pasted%20image%2020240614030511.png)
+![](Attachments/Pasted%20image%2020240614030511.png)
 ### 2) Use terminal in your OS. For example use:   
 	- **iTerm2** for macOs
     - **MobaXterm** for Windows
 
 To connect use this Ip address:
-![](Images/Pasted%20image%2020240614031231.png)
+![](Attachments/Pasted%20image%2020240614031231.png)
 
 
 
 
-![](Images/Pasted%20image%2020240614033535.png)
+![](Attachments/Pasted%20image%2020240614033535.png)
 If it says that the key is not private, use `chmod 600 file.pem`
 ==STOP and terminate the instance after using the EC2!==
 
@@ -100,11 +100,11 @@ If it says that the key is not private, use `chmod 600 file.pem`
 ### 3) Use AWS CLI (command line interface)
 1) Download AWS CLI.
 2) Configure AWS CLI
-![](Images/Pasted%20image%2020240614045031.png)
+![](Attachments/Pasted%20image%2020240614045031.png)
 
 
 Use the all the info from this page when execute `aws configure` :
-![](Images/Pasted%20image%2020240614045257.png)
+![](Attachments/Pasted%20image%2020240614045257.png)
 Now we can use different AWS services, for instance s3, with `aws` command. (s3 is some cloud storage service. You can read more about it later, if you want)
 
 To find another commands use AWS CLI documentation (check later): 
@@ -114,10 +114,10 @@ https://docs.aws.amazon.com/cli/
 https://docs.aws.amazon.com/cli/v1/userguide/cli-services-ec2-instances.html ==read more later==
 
 I checked the name for `--image-id`, generated `--key-name`, `--security-group-ids`(to create this, I also had to find the `--vpc-id`, ==read about it more later==)
-![](Images/Pasted%20image%2020240614061031.png)
+![](Attachments/Pasted%20image%2020240614061031.png)
 
 
-![](Images/Pasted%20image%2020240614061227.png)
+![](Attachments/Pasted%20image%2020240614061227.png)
 
 The command I used is:
 
@@ -126,7 +126,7 @@ aws ec2 run-instances --image-id ami-01e444924a2233b07 --count 1 --instance-type
 ```
 
 When I tried to connect, I received this:
-![](Images/Pasted%20image%2020240614063555.png)
+![](Attachments/Pasted%20image%2020240614063555.png)
 To resolve it, I changed the rule of security group with this procedure: 
 
 *Ensure that your EC2 instance's security group allows inbound traffic on port 22 (SSH).*
@@ -143,12 +143,12 @@ To resolve it, I changed the rule of security group with this procedure:
 The link to github with example:
 https://github.com/aws-cloudformation/aws-cloudformation-templates
 
-![](Images/Pasted%20image%2020240614064400.png)
+![](Attachments/Pasted%20image%2020240614064400.png)
 
-![](Images/Pasted%20image%2020240614065031.png)
+![](Attachments/Pasted%20image%2020240614065031.png)
 ### 5) Using scripts, for example boto 3 in python:
 https://gist.github.com/mda590/679aba60ca03699d5b12a32314debdc0
-![](Images/Pasted%20image%2020240614070118.png)
+![](Attachments/Pasted%20image%2020240614070118.png)
 You can read about boto3 more in documentation!
 
 

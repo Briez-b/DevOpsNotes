@@ -234,7 +234,7 @@ docker run hello-world
 
 Run our own image:
 1) Create Dockerfile and needed app code:
-![](Images/Pasted%20image%2020240906072432.png)
+![](Attachments/Pasted%20image%2020240906072432.png)
 1. **FROM ubuntu:latest**: This line sets the base image to the latest version of Ubuntu.
 2. **WORKDIR /app**: Sets the working directory inside the container to `/app`.
 3. **COPY . /app**: Copies all the files from the current directory on the host system into the `/app` directory in the container.
@@ -242,16 +242,16 @@ Run our own image:
 5. **ENV NAME World**: Sets an environment variable `NAME` with the value `World`.
 6. **CMD ["python3", "app.py"]**: Specifies the command to run when the container starts, which is to execute the `app.py` script using Python 3.
 
-![](Images/Pasted%20image%2020240906072608.png)
+![](Attachments/Pasted%20image%2020240906072608.png)
 app is a simple python hello-world
 2) Run build:
 ``` bash
 docker buid -t ebryyau/first-ubuntu-image:v1 .
 ```
-![](Images/Pasted%20image%2020240906074540.png)
+![](Attachments/Pasted%20image%2020240906074540.png)
 3) Run to be sure it works. And then you can push it to docker hub. Then this image will be accesible for everyone:
-![](Images/Pasted%20image%2020240906075056.png)
-![](Images/Pasted%20image%2020240906075115.png)
+![](Attachments/Pasted%20image%2020240906075056.png)
+![](Attachments/Pasted%20image%2020240906075115.png)
 To remove images use this:
 ``` bash
 docker rmi image-name
@@ -320,7 +320,7 @@ These commands will help you efficiently manage your Docker environment. Feel fr
 **Django** is a high-level, open-source web framework written in Python that encourages rapid development and clean, pragmatic design. It was originally developed to meet the fast-paced newsroom deadlines of a newspaper, which is why it emphasizes getting work done quickly while maintaining high levels of security and scalability.
 
 This is how the skeleton of such app looks(from example on github):
-![](Images/Pasted%20image%2020240906163054.png)
+![](Attachments/Pasted%20image%2020240906163054.png)
 
 I will try to run this app on my own machine:
 1) Install python, pip.
@@ -329,7 +329,7 @@ sudo pacman -S python3
 sudo pacman -S python-pip
 ```
 2) Install additional python packages using pip(I also created additional virtual env).
-![](Images/Pasted%20image%2020240906105143.png)
+![](Attachments/Pasted%20image%2020240906105143.png)
 And then I tried to launch server, but it failed. Nothing works.
 The reason is just the wrong address I used. I need to add `/demo` to url
 3) Run the application with this command:
@@ -340,7 +340,7 @@ python manage.py runserver
 Also I deployed this app to EC2 instance with docker:
 1) Install docker
 2) Create docker file:
-![](Images/Pasted%20image%2020240906161137.png)
+![](Attachments/Pasted%20image%2020240906161137.png)
 In original dockerfile in Abhishek repository there is no `ENV PIP_BREAK_SYSTEM_PACKAGES 1`. I added it because currently pip is not allow to install packages without setting virtual environment. This line disable this requirement. (I also tried to create env in docker file, but the image wasn't able to execute application because it didn't see Django package).
 3) Then build the image. To make this app accesible through port 8000, we need to make a mapping from docker port 8000 to EC2 host port 8000. So add the -p flag to run command:
 `docker run -p 8000:8000 -it image-id`
@@ -349,7 +349,7 @@ In original dockerfile in Abhishek repository there is no `ENV PIP_BREAK_SYSTEM_
 1) Find python base image in docker hub
 https://hub.docker.com/_/python
 2) Change Docker file:
-![](Images/Pasted%20image%2020240906171732.png)
+![](Attachments/Pasted%20image%2020240906171732.png)
 
 ==come back to Django app to investigate more how it works and maybe improve application==
 ==for example I can create my own Django project== Check official documentation (added this task to "task note").
@@ -386,16 +386,16 @@ Such very lightweight base images we used in stage 2 called ==distroless images=
 
 
 This is an example of golang app(just calculator) with one stage build:
-![](Images/Pasted%20image%2020240907115141.png)
+![](Attachments/Pasted%20image%2020240907115141.png)
 Such image will take ==~850 mb.==
 
 Let's do the same, but with multistage build:
 1) Create our app that will be deployed on docker image
-![](Images/Pasted%20image%2020240907114924.png)
+![](Attachments/Pasted%20image%2020240907114924.png)
 
 
 2) Create Dockerfile:
-![](Images/Pasted%20image%2020240907121304.png)
+![](Attachments/Pasted%20image%2020240907121304.png)
 3) Now we can see the size is only 1.96 mb
 This is just an example. In real cases it is better to use goland distroless image:
 ```
@@ -412,11 +412,11 @@ CMD ["/myapp"]
 
 ```
 Python multistage build:
-![](Images/Pasted%20image%2020240907125952.png)
+![](Attachments/Pasted%20image%2020240907125952.png)
 It takes only 52,8 mb
 
 NodeJs example:
-![](Images/Pasted%20image%2020240907130256.png)
+![](Attachments/Pasted%20image%2020240907130256.png)
 
 More examples here: https://github.com/GoogleContainerTools/distroless
 
@@ -440,11 +440,11 @@ Volumes are similar, you can create volume(it will take some storage from host m
 How it works? Using Docker cli we can create Volume that will be using the memory on the needed machine (like it is create additional logical disk). And later we attach it to any container we want.
 
 ### How to create Volumes?
-![](Images/Pasted%20image%2020240907141526.png)
-![](Images/Pasted%20image%2020240907143239.png)
+![](Attachments/Pasted%20image%2020240907141526.png)
+![](Attachments/Pasted%20image%2020240907143239.png)
 `$ docker inspect 8ceb7cd923d5` | jq
 ...
-![](Images/Pasted%20image%2020240907143345.png)
+![](Attachments/Pasted%20image%2020240907143345.png)
 We can also specify if this is read or write volume ("RW: true above"). To do this, we can specify it in --mount parameters.
 
 ---
@@ -457,23 +457,23 @@ For example we can have such 2 scenarios:
 
 ==Let's find out what is happening with communication between container and host when it is created:==
 Host machine has it is own Ethernet network interface. For my arch linux machine it is called enp0s31f6 and it has IP 192.168.166.223. Also there is a network for my docker: docker0 172.17.0.1.
-![](Images/Pasted%20image%2020240908132427.png)
+![](Attachments/Pasted%20image%2020240908132427.png)
 
 When docker run a container, the container has it is own network interface, but it can't be used to communicate to host. 
 But when any container is run, docker use additional virtual network interface called bridge and assign free IP address to
 new container, which can be used for such purpose:
-![](Images/Pasted%20image%2020240908133355.png)
+![](Attachments/Pasted%20image%2020240908133355.png)
 Here is the bridge network info. we can use any IP address within the subnet `172.17.0.0/16` except the gateway (`172.17.0.1`) and the IP addresses already assigned to running containers. For example, you could use an IP address like `172.17.0.3`, `172.17.0.4`, etc., as long as it's not already in use by another container. But it is better to let docker assign it automatically, when it creates container.
 
 The assigned Ip address for our container
-![](Images/Pasted%20image%2020240908133755.png)
+![](Attachments/Pasted%20image%2020240908133755.png)
 
 So, let's come back to examples above.
 ### First example scenario(frontend and backend container): 
 Containers should have a possibility for communication with each other.
 
 There is no need to do anything else, by default newly created containers use the same "bridge" network interface, so just next IPAddress assigned, therefore they can communicate each other by default.
-![](Images/Pasted%20image%2020240908135419.png)
+![](Attachments/Pasted%20image%2020240908135419.png)
 Note: to run containers in background(detach mode) we can use -d. They should have some ongoing process.
 ```
 docker run -d --name nginxContainer nginx
@@ -497,10 +497,10 @@ Now we can use this network with --network when we run container:
 docker run -d --name newContainer3 --network=bridge2 ebryyau/multistage-go-calc
 ```
 IP of the first container:
-![](Images/Pasted%20image%2020240908142806.png)
+![](Attachments/Pasted%20image%2020240908142806.png)
 
 Ip of the second:
-![](Images/Pasted%20image%2020240908142731.png)They have different subnet now, they will not able to communicate each other.
+![](Attachments/Pasted%20image%2020240908142731.png)They have different subnet now, they will not able to communicate each other.
 
 ==come back to devops playlist later, there is one video I missed for now==
 

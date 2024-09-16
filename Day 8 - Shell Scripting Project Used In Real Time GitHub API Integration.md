@@ -1,17 +1,17 @@
 
 You can write shell script for GitHub purposes(like check who has an access to certain repository). To find the particular command firstly we need to go to GitHub documentation(google github api doc)
-![](Images/Pasted%20image%2020240623204452.png)
+![](Attachments/Pasted%20image%2020240623204452.png)
 
 To use the script, first I cloned it from existing repository. This script requires my username and token that should be generated on github, so I did it:
-![](Images/Pasted%20image%2020240916154647.png)
+![](Attachments/Pasted%20image%2020240916154647.png)
 
 Here is the script and the output:
-![](Images/Pasted%20image%2020240623210857.png)
+![](Attachments/Pasted%20image%2020240623210857.png)
 
-![](Images/Pasted%20image%2020240623210930.png)
+![](Attachments/Pasted%20image%2020240623210930.png)
 
 ==Improved script. Added new function `helper` to be sure that the script will not be executed if the number of args is not equal 2==
-![](Images/Pasted%20image%2020240623221031.png)
+![](Attachments/Pasted%20image%2020240623221031.png)
 
 In Bash, `$#` refers to the number of positional parameters (arguments) passed to a script or function, and `$@` refers to all the positional parameters passed to a script or function. They have different purposes and usage contexts.
 
@@ -20,7 +20,7 @@ In Bash, `$#` refers to the number of positional parameters (arguments) passed t
 
 ==Can be interview question.== Versions control systems: centralized (CVS) and Distributed (Git). 
 
-![](Images/Pasted%20image%2020240629042017.png)
+![](Attachments/Pasted%20image%2020240629042017.png)
 The image illustrates a comparison between centralized and distributed version control systems, focusing on tools like CVS, SVN, and Git.
 
 1. **Version Control Overview**:
@@ -75,7 +75,7 @@ To get commits from another branch these commands used:
 `git cherry-pick` , `git merge`, `git rebase`
 
 Git cherry-pick. Just use the commit id of the commit from another branch. Here the commit from branch "division" cherry-picked to "main" branch.
-![](Images/Pasted%20image%2020240629050308.png)
+![](Attachments/Pasted%20image%2020240629050308.png)
 
 ==`git merge` when merging the another branch to main branch creates a new merge commit. This mechanism makes commit history look like "branching history" variant.==
 #### Example Commit History

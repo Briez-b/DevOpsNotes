@@ -5,7 +5,7 @@ To understand what is these functions for let's begin with comparing with Docker
 ##### Docker:
 We have one host and it creates container using Docker daemon with docker run. When we run container,  it should have something to run (for example it should have Java runtime and java application).
 Or in my previous example, simple calculator was waiting for my commands. So, container was run till I stop using the calculator. So, containers should have something that could be run. The component responsible for this called **Container run time**. It includes several key components like **containerd** that work together to create, manage, and run containers.
-![](Images/Pasted%20image%2020240912163152.png)
+![](Attachments/Pasted%20image%2020240912163152.png)
 
 ---
 ##### Kubernetes
@@ -18,7 +18,7 @@ In Docker we deploy containers, in Kubernetes we deploy PODs.
 To use kubernetes, we create a master and worker nodes(in this example there will be 1 master, 1 worker). 
 Master node role is control plane. All the requests go through this node.
 Worker nodes role is Data plane. This is the place where Kubernetes deploys PODs. 
-![](Images/Pasted%20image%2020240912162207.png)
+![](Attachments/Pasted%20image%2020240912162207.png)
 When pod is deployed on worker node, there is a component called **kubelet**. It is responsible for running and managing your POD. For example, it checks if the POD is running, if not it informs Kubernetes about it to do something about it.
 
 ---
