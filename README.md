@@ -1,0 +1,2 @@
+# DevOpsNotes
+ObsidianNotes
