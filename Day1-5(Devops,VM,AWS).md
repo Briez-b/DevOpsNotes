@@ -39,7 +39,7 @@ Every Development cycle has these phases:
 ### ==Day 3 Virtual machines
 
 When VM are not used, the resources used inefficiently. In this example we see that when there are 5 teams in the project(like example.com), they use 5 servers. In every server they use only 20 % of the resources. It sis very inefficiently. 
-![[Pasted image 20240614015955.png]]
+![[DevOpsNotes/Images/Pasted image 20240614015955.png]]
 
 So, the Virtual Machines (VM) were created for such purpose. In such case we have only 1 server for all teams splitted to 5 parts by hypervisor.
 
