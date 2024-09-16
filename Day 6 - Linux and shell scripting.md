@@ -49,15 +49,15 @@ To grep some processes we can use this command. For example show all processes r
 ==Interview question==
 What is the output of this command? 
 
-![](../Images/Pasted%20image%2020240617103714.png)
+![](Images/Pasted%20image%2020240617103714.png)
 Another important command. Show only a info from 3 column using `awk`:
 `ps -ef | grep "amazon" | awk -F" " '{print $2}'
 
-![](../Images/Pasted%20image%2020240622190621.png)
+![](Images/Pasted%20image%2020240622190621.png)
 
 To get the content from the internet  use `curl`:
 
-![](../Images/Pasted%20image%2020240622193410.png)
+![](Images/Pasted%20image%2020240622193410.png)
 
 The analog of this command is:
 `curl -X GET https://yourhttpling.com`
@@ -65,18 +65,18 @@ To download the file use `wget`
 `wget https://site.com/yourfile.txt
 
 To find the file by the name use `find`
-![](../Images/Pasted%20image%2020240622194157.png)
+![](Images/Pasted%20image%2020240622194157.png)
 
 "If else" condition for scripts:
-![](../Images/Pasted%20image%2020240622194425.png)
+![](Images/Pasted%20image%2020240622194425.png)
 
 "For loop" in shell scripting:
 
 Another method of using if and for loops using (( )) for arithmetic and increment operators:
-![](../Images/Pasted%20image%2020240622200945.png)
+![](Images/Pasted%20image%2020240622200945.png)
 
 Not very usefull command,but I left it there because it uses "SIGNALS". Signals are the thing that we are send to the terminal. For example ctrl + C:
-![](../Images/Pasted%20image%2020240622201335.png)
+![](Images/Pasted%20image%2020240622201335.png)
 SIGINT is "ctr + c".
 
 
