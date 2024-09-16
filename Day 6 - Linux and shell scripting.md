@@ -42,7 +42,7 @@ Before it was the same because sh was a link to bash. But now some OS use sh as 
 
 Some useful commands:
 
-![](../Images/Pasted%20image%2020240617103251.png)
+![](Images/Pasted%20image%2020240617103251.png)
 To grep some processes we can use this command. For example show all processes runned by amazon:
 `ps -ef | grep "amazon"`
 
