@@ -1,10 +1,10 @@
-Kubernetes functions can be separated on two things:
+Kubernetes architecture infrastructure can be separated on two things:
 Control plane and Data plane. 
 To understand what is these functions for let's begin with comparing with Docker.
 
 ##### Docker:
 We have one host and it creates container using Docker daemon with docker run. When we run container,  it should have something to run (for example it should have Java runtime and java application).
-Or in my previous example, simple calculator was waiting for my commands. So, container was run till I stop using the calculator. So, containers should have something that could be run. The component responsible for this called **Container run time**. It includes several key components like **containerd** that work together to create, manage, and run containers.
+Or in my previous example, simple calculator was waiting for my commands. So, container was run till I stop using the calculator. So, containers should have something that could be running continuously. The component responsible for this called **Container run time**. It includes several key components like **containerd** that work together to create, manage, and run containers.
 ![](Attachments/Pasted%20image%2020240912163152.png)
 
 ---
@@ -42,7 +42,7 @@ Responsible for networking, analog of docker0 bridge in docker, but with additio
 #### ==Control plane== (master node components):
 
 **API server**(`kube-apiserver`) 
-To communicate with kubernetes cluster, we need a component that should be responsible for that. The component that takes the instructions from external and apply them(for example where new PODS should be deployed, on what node). So, API server is the interface between kubernetes cluster and external world.
+To communicate with kubernetes cluster, we need a component that should be responsible for that. The component that takes the instructions from outside of cluster and apply them(for example where new PODS should be deployed, on what node). So, API server is the interface between kubernetes cluster and external world.
 
 >[!info] API Server
 The API Server is a critical component of the Kubernetes control plane that acts as the central management point and the front-end for the entire Kubernetes cluster. It exposes the Kubernetes API, which is the primary interface used by all components and external tools to interact with the cluster. The API Server processes RESTful API requests from users, tools, and other control plane components, validates them, and updates the cluster state in etcd, the distributed key-value store.
@@ -53,7 +53,7 @@ Responsible for scheduling the resources, assigning newly created pods to nodes.
 The Kubernetes Scheduler is a control plane component responsible for assigning newly created pods to nodes in the cluster based on resource requirements, constraints, and policies. It is the component that decides which node is the best fit for each pod, considering factors like available resources, taints, tolerations, affinity, and anti-affinity rules.
 
 **etcd**:
-It responsible for backup of all the kubernetes data. It stores all the information about current state of kubernetes cluster. 
+It is responsible for backup of all the kubernetes data. It stores all the information about current state of kubernetes cluster. 
 >[!info] Etcd
 Etcd is a distributed, reliable key-value store that serves as the primary data store for Kubernetes. It holds the configuration data, cluster state, and metadata needed for managing the Kubernetes cluster. Etcd is crucial for the operation of the Kubernetes control plane, as it provides the persistent backend for all cluster data, including information about nodes, pods, services, secrets, and configurations.
 
