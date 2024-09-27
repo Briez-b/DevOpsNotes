@@ -19,12 +19,17 @@ To use kubernetes, we create a master and worker nodes(in this example there wil
 Master node role is control plane. All the requests go through this node.
 Worker nodes role is Data plane. This is the place where Kubernetes deploys PODs. 
 ![](Attachments/Pasted%20image%2020240912162207.png)
-When pod is deployed on worker node, there is a component called **kubelet**. It is responsible for running and managing your POD. For example, it checks if the POD is running, if not it informs Kubernetes about it to do something about it.
+
+
+Let's find out about kubernetes architecture, what a;; the components serve for.
+We can separate all the components on Data plane and control plane (worker node components and master node).
 
 ---
-#### ==Data plane== (worker nodes components):
+### ==Data plane== (worker nodes components):
 
-**Kubelet**
+
+***Kubelet***:
+When pod is deployed on worker node, there is a component called **kubelet**.  It is responsible for running and managing your POD. For example, it checks if the POD is running, if not it informs Kubernetes about it to do something about it.
 > [!info] Kubelet
 **Kubelet** is a primary node agent in Kubernetes that runs on each worker node. It is responsible for managing Pods, ensuring that containers are running as expected, and interacting with the container runtime to start, stop, and maintain containers according to the Pod specifications provided by the Kubernetes control plane.
 
@@ -39,7 +44,7 @@ Responsible for networking, analog of docker0 bridge in docker, but with additio
 > Kube-proxy is a network component that runs on each node in the Kubernetes cluster and is responsible for maintaining network rules and routing traffic to and from the containerized applications. It manages the networking setup for service discovery and ensures that network requests are forwarded correctly between pods, services, and external clients by maintaining network rules using iptables, IPVS, or other supported methods. Kube-proxy plays a crucial role in enabling load balancing and network connectivity within the Kubernetes cluster.
 
 ---
-#### ==Control plane== (master node components):
+### ==Control plane== (master node components):
 
 **API server**(`kube-apiserver`) 
 To communicate with kubernetes cluster, we need a component that should be responsible for that. The component that takes the instructions from outside of cluster and apply them(for example where new PODS should be deployed, on what node). So, API server is the interface between kubernetes cluster and external world.
@@ -63,7 +68,7 @@ This component runs controllers that manage various aspects of the cluster. For 
 The Kubernetes Controller Manager is a core control plane component that runs controllers, each responsible for maintaining the desired state of various resources in the cluster. It is a daemon that manages multiple controllers in a single process, coordinating their actions to ensure the Kubernetes cluster behaves as intended. Each controller watches the state of the cluster via the API Server and takes corrective actions when the actual state does not match the desired state.
 
 **Cloud Controller manager**:
-Responsible for integrating kubernetes with other cloud provider services. For example Kubernetes can be run on the services like EKS(amazon elastic kubernetes service). When it is run on EKS, it has to understand how to create and use cloud provider's load balancer, storage volumes and etc. CCM manages all of these, woth this component kubernetes understand how to interact with different cloud provider platforms
+Responsible for integrating kubernetes with other cloud provider services. For example Kubernetes can be run on the services like EKS(amazon elastic kubernetes service). When it is run on EKS, it has to understand how to create and use cloud provider's load balancer, storage volumes and etc. CCM manages all of these, with this component kubernetes understand how to interact with different cloud provider platforms
 >[!info] Cloud Controller Manager
 The Cloud Controller Manager is a Kubernetes control plane component that integrates Kubernetes with cloud provider-specific services. It enables the Kubernetes cluster to interact with cloud resources such as load balancers, storage volumes, and nodes provided by the underlying cloud infrastructure. By running cloud-specific control loops, it decouples cloud provider code from the main Kubernetes components, allowing for better maintainability and modularity.
 
