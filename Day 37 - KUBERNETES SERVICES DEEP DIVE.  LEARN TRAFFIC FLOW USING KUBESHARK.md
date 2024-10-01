@@ -45,11 +45,12 @@ Now my application can be accessed with this address:
 
 
 To see what is happening in my cluster(see the actors and events that they send to pods, something like wireshark), I can use ==kubeshark==. But for some reason it doesn't work with my cluster.
+I checked later. Now everything is fine. Maybe preciously I had a too small worker node. Now I have a cluster with t3.medium master and worker.
+
+Now with kubeshark I can see that requests go to different pods(load balancing happens).
 
 
-
-
-
+![](Attachments/Pasted%20image%2020241001165341.png)
 
 
 

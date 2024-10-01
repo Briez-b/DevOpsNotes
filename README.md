@@ -1,6 +1,10 @@
 # DevOpsNotes
 This is my Devops theory and practice notes folder from Obsidian
 
+List of many open source projects I can try to deploy
+https://landscape.cncf.io/
+
+
 
 
 
