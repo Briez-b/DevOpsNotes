@@ -74,3 +74,4 @@ So it works, ADDRESS shouldn't be filled to have ingress synced, I was wrong.
 
 
 ==I tested with nginx controller again, it doesn't work with it at all. I don't know why. But all works with TRAEFIC, host based and not host based. All is fiine==
+
