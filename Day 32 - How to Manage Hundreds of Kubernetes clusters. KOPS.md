@@ -77,7 +77,7 @@ https://kops.sigs.k8s.io/getting_started/aws/
 1) ==***Created new IAM user KOPS***==
 
 ![](Attachments/Pasted%20image%2020240918205223.png)
-2) ==***Create  new s3 bucket for storung OIDC documents.***==
+2) ==***Create  new s3 bucket for storing OIDC documents.***==
 
 ![](Attachments/Pasted%20image%2020240918205338.png)
 

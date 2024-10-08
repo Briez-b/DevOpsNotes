@@ -11,6 +11,8 @@ What is API? It is Application Programming Interface. APIs define the methods an
 
 Terraform use the same concept. When we write Terraform scripts, it translates it to the language that for example AWS API understand and communicate with it is API.
 
+---
+
 #  Day-17 - Everything about Terraform. Write Your First Project. Remote Backend. Modules. Interview Q&A
 
 
@@ -42,6 +44,4 @@ This is a good practice to have other files in your terraform repository. For ex
 
 ![](Attachments/Pasted%20image%2020240827200806.png)
 
-To add S3 backend remote state, first we need to create s3 backet and dynamo DB:
-So write new main.tf file to execute this:
-!!!!! Add this later
+To add S3 back end remote state we need to create s3 backet and dynamo DB:
