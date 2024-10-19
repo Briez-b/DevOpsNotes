@@ -1,4 +1,4 @@
-
+==Practice==
 # Monitoring
 
 ## Metrics vs Monitoring
@@ -133,6 +133,82 @@ kubectl port-forward service/monitoring-grafana -n monitoring 8080:80
 ```bash
 kubectl port-forward service/alertmanager-operated -n monitoring 9093:9093
 ```
+
+### 🧼 Step 5: Clean UP
+- **Uninstall helm chart**:
+```bash
+helm uninstall monitoring --namespace monitoring
+```
+- **Delete namespace**:
+```bash
+kubectl delete ns monitoring
+```
+- **Delete Cluster & everything else**:
+```bash
+eksctl delete cluster --name observability
+```
+
+
+
+# PRACTICE
+
+First let's create EKS cluster
+1) Install eksctl: https://eksctl.io/installation/
+
+![](../Attachments/Pasted%20image%2020241016154103.png)
+
+2) Create cluster
+
+I got error:
+![](../Attachments/Pasted%20image%2020241016154635.png)
+
+Seems I need to add policies for my kops user.
+
+![](../Attachments/Pasted%20image%2020241016160009.png)
+
+It didn't work because I forgot some other permission. I didn't investigate what else, so I just added administrator policy to kops user.
+
+3) Add oidc and nodes to cluster.
+
+![](../Attachments/Pasted%20image%2020241017111725.png)
+
+``` shell
+# Update ./kube/config file
+aws eks update-kubeconfig --name test-cluster-observability
+```
+
+Now I can see my nodes with kubectl. All work as expected
+4) Install prometheus. Use some script from Abhishek repository for custom configuration of kube-prometheus-stack
+``` shell
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install monitoring prometheus-community/kube-prometheus-stack \
+-n monitoring \
+-f ./custom_kube_prometheus_stack.yml
+```
+
+5) **Verify installation**
+   
+```bash
+kubectl get all -n monitoring
+```
+- **Prometheus UI**:
+```bash
+kubectl port-forward service/prometheus-operated -n monitoring 9090:9090
+```
+- **Grafana UI**: password is `prom-operator`
+```bash
+kubectl port-forward service/monitoring-grafana -n monitoring 8080:80
+```
+- **Alertmanager UI**:
+```bash
+kubectl port-forward service/alertmanager-operated -n monitoring 9093:9093
+```
+
+And I can see all the resources on AWS console:
+![](../Attachments/Pasted%20image%2020241017125737.png)
+
+Instead port-forward better use ingress controller. I did such thing before. 
+
 
 ### 🧼 Step 5: Clean UP
 - **Uninstall helm chart**:
