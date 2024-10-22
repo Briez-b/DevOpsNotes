@@ -1,4 +1,3 @@
-==Practice==
 # Monitoring
 
 ## Metrics vs Monitoring
