@@ -10,7 +10,7 @@ S3 buckets are containers for storing objects (files) in Amazon S3. Each bucket 
 
 Why use S3 buckets?
 
-S3 buckets provide a reliable and highly scalable storage solution for various use cases. They are commonly used for backup and restore, data archiving, content storage for websites, and as a data source for big data analytics.
+S3 buckets provide a reliable and highly scalable storagel solution for various use cases. They are commonly used for backup and restore, data archiving, content storage for websites, and as a data source for big data analytics.
 
 Key benefits of S3 buckets
 

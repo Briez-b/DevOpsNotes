@@ -16,13 +16,13 @@ A: In this scenario, I would design a VPC architecture in the following way.
 
 ### Q: You have launched EC2 instances in your VPC, and you want them to communicate with each other using private IP addresses. What steps would you take to enable this communication?
 
-A: By default, instances within the same VPC can communicate with each other using private IP addresses.**
-  To ensure this communication, we need to make sure that the instances are launched in the same VPC and are placed in the same subnet or subnets that are connected through a peering connection or a VPC peering link. 
-  Additionally, we should check the security groups associated with the instances to ensure that the necessary inbound and outbound rules are configured to allow communication between them.
+A: 
+  "By default, instances within the same VPC can communicate with each other using private IP addresses. To ensure this communication, verify that the instances are launched in the same VPC and that the security groups and network ACLs associated with the instances have the necessary inbound and outbound rules configured to allow traffic between them."
 
 ### Q: You want to implement strict network access control for your VPC resources. How would you achieve this?
 
-A: To implement granular network access control for VPC resources, we can use Network Access Control Lists (ACLs). 
+A: 
+To implement granular network access control for VPC resources, we can use Network Access Control Lists (ACLs). 
   NACLs are stateless and operate at the subnet level. We can define inbound and outbound rules in the NACLs to allow or deny traffic based on source and destination IP addresses, ports, and protocols. 
   By carefully configuring NACL rules, we can enforce fine-grained access control for traffic entering and leaving the subnets.
 

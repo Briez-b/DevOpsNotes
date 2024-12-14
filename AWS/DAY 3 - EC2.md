@@ -112,20 +112,3 @@ Additional capabilities
     z – High performance
 ```
 
-## EC2 Instance Basics:
-
-Understanding the concept of virtual servers and instances.
-Key components of an EC2 instance: AMI (Amazon Machine Image), instance types, and instance states.
-Differentiating between On-Demand, Reserved, and Spot instances.
-
-## Launching an EC2 Instance:
-
-- Step-by-step guide on launching an EC2 instance using the AWS Management Console.
-- Configuring instance details, such as instance type, network settings, and storage options.
-- Understanding security groups and key pairs for securing instances.
-
-## Managing EC2 Instances:
-
-- Starting, stopping, and terminating instances.
-- Monitoring instance performance and utilization.
-- Basic troubleshooting and accessing instances using SSH (Secure Shell).

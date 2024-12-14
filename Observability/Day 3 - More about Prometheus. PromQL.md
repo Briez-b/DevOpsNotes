@@ -152,7 +152,6 @@ I can create my own dashboard
 
 ![](../Attachments/Pasted%20image%2020241017173503.png)
 
-
 I can add other source of data to Grafana instead of Prometheus, for example influxDB.
 
 ---

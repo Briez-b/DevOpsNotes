@@ -129,7 +129,9 @@ Resources:
 To create template and execute go to CloudFormation service and create stack. There are several oprions:
 
 ![](../Attachments/Pasted%20image%2020241107123933.png)
+
 For example I can choose "Build from infrastructure Composer"
+
 ![](../Attachments/Pasted%20image%2020241107125409.png)
 
 ![](../Attachments/Pasted%20image%2020241107125448.png)

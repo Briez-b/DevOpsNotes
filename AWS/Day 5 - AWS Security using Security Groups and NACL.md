@@ -46,3 +46,19 @@ Now we can add security rule to security group:
 And add to NACL
 
 ![](../Attachments/Pasted%20image%2020241022144837.png)
+
+A few words about subnet mask: 
+
+### **In the Context of 256 IP Addresses**
+
+If you provide **256 IP addresses** (`192.168.1.0/24`) to a subnet, the subnet mask (`255.255.255.0` or `/24`) indicates:
+
+- **The network part**: `192.168.1.`
+- **The host part**: `0–255`.
+
+This subnet can support:
+
+- **254 usable IP addresses** (for devices like computers, printers, phones, etc.).
+- **2 reserved IP addresses**:
+    - **Network address**: `192.168.1.0` (identifies the subnet itself).
+    - **Broadcast address**: `192.168.1.255` (used for sending messages to all devices in the subnet).
